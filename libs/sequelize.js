@@ -10,12 +10,13 @@ const URI = `postgres://${USER}:${PASSWORD}@${config.dbHost}:${config.dbPort}/${
 
 const sequelize = new Sequelize(URI, {
   dialect: 'postgres',
-  logging: true
+  logging: false
 });
 
 // Corremos setupModels despues de la creacion de instacia
 setupModels(sequelize);
 
 // Con esto lee el modelo configurado y sabe como crear la tabla
+// La función sync lee los modelos y empieza a crear tablas. Sin embargo esto para producción no se recomienda
 sequelize.sync();
 module.exports = sequelize;
