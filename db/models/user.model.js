@@ -1,8 +1,6 @@
 const {Model, DataTypes, Sequelize} = require('sequelize');
-
 // Creamos toda la estructura para que despues sequelize la cree en la tabla
 const USER_TABLE = 'users'; //Nombre de la tabla
-
 // Le decimos el esquema. Define la estructura de la bd
 // La estructura de la tabla es por objetos con propiedades
 const UserSchema = {
@@ -33,7 +31,6 @@ const UserSchema = {
     defaultValue: Sequelize.NOW
   }// El campo field es para respetar las buenas practicas SQL de naming, por eso esta ahi
 }
-
 // Definimos una clase con nuestro modelo. El modelo tiene toda las formas de hacer querys, por eso es muy importante
 class User extends Model{
   // Creamos metodos estaticos. O sea que no necesito declarar el objeto para acceder a esos metodos. Definimos las asociaciones
@@ -50,5 +47,4 @@ class User extends Model{
     }
   }
 }
-
 module.exports = { USER_TABLE, UserSchema, User };
