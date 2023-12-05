@@ -34,8 +34,11 @@ const UserSchema = {
 // Definimos una clase con nuestro modelo. El modelo tiene toda las formas de hacer querys, por eso es muy importante
 class User extends Model{
   // Creamos metodos estaticos. O sea que no necesito declarar el objeto para acceder a esos metodos. Definimos las asociaciones
-  static associate() {
-    // associate
+  static associate(models) {
+    this.hasOne(models.Customer, {
+      as: 'customer',
+      foreignKey: 'userId'
+    });
   }
   static config(sequelize){
     // Primero la conexion que tendra, luego el nombre de la tabla. Nombre del modelo y el timestamp que crean campos por defecto para creacion y actualizacion

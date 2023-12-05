@@ -16,7 +16,4 @@ const sequelize = new Sequelize(URI, {
 // Corremos setupModels despues de la creacion de instacia
 setupModels(sequelize);
 
-// Con esto lee el modelo configurado y sabe como crear la tabla
-// La función sync lee los modelos y empieza a crear tablas. Sin embargo esto para producción no se recomienda
-
 module.exports = sequelize;
